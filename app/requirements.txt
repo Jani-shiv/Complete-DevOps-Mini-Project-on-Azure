@@ -1,0 +1,17 @@
+# Flask Web Application Dependencies
+# Production-ready package versions
+
+# Core Framework
+Flask==3.0.0
+
+# Production WSGI Server
+gunicorn==21.2.0
+
+# Werkzeug (Flask dependency - pinned for security)
+Werkzeug==3.0.1
+
+# Jinja2 templating (Flask dependency)
+Jinja2==3.1.2
+
+# Additional utilities
+python-dotenv==1.0.0
