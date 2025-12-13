@@ -384,4 +384,3 @@ Give a ⭐ if this project helped you learn DevOps!
 
 ---
 
-**Built with ❤️ for DevOps Learners**
