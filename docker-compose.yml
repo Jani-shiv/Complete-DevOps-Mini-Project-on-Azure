@@ -1,0 +1,44 @@
+# =============================================================================
+# Docker Compose - Local Development
+# =============================================================================
+# Run: docker-compose up
+# Stop: docker-compose down
+# Rebuild: docker-compose up --build
+# =============================================================================
+
+version: '3.8'
+
+services:
+  # ---------------------------------------------------------------------------
+  # Flask Application
+  # ---------------------------------------------------------------------------
+  app:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.dev
+    container_name: devops-flask-app-dev
+    ports:
+      - "5000:5000"
+    environment:
+      - ENVIRONMENT=development
+      - FLASK_ENV=development
+      - FLASK_DEBUG=1
+      - APP_VERSION=dev
+    volumes:
+      # Mount source code for hot-reload
+      - ./src:/app
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+
+# =============================================================================
+# Networks
+# =============================================================================
+networks:
+  default:
+    name: devops-network
+    driver: bridge

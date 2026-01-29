@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+
+{% block title %}{{ app_name }} - DevOps Demo{% endblock %}
+
+{% block content %}
+<main class="container">
+    <!-- Header Section -->
+    <header class="header">
+        <div class="logo-container">
+            <div class="logo-icon">🚀</div>
+        </div>
+        <h1 class="title">{{ app_name }}</h1>
+        <p class="subtitle">Deployed via GitHub Actions CI/CD Pipeline</p>
+    </header>
+
+    <!-- Server Info Card -->
+    <section class="info-card" data-aos="fade-up">
+        <div class="card-header">
+            <span class="card-icon">📡</span>
+            <h3>Server Information</h3>
+        </div>
+        <div class="card-content">
+            <div class="info-row">
+                <span class="label">Hostname</span>
+                <span class="value">{{ hostname }}</span>
+            </div>
+            <div class="info-row">
+                <span class="label">Server Time</span>
+                <span class="value" id="server-time">{{ server_time }}</span>
+            </div>
+            <div class="info-row">
+                <span class="label">Environment</span>
+                <span class="value environment-badge {{ environment }}">{{ environment }}</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deployment Info Card -->
+    <section class="info-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="card-header">
+            <span class="card-icon">🔧</span>
+            <h3>Deployment Details</h3>
+        </div>
+        <div class="card-content">
+            <div class="info-row">
+                <span class="label">Version</span>
+                <span class="value version-tag">v{{ version }}</span>
+            </div>
+            <div class="info-row">
+                <span class="label">Container</span>
+                <span class="value">Docker</span>
+            </div>
+            <div class="info-row">
+                <span class="label">Cloud Platform</span>
+                <span class="value">Azure VM</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Status Badge -->
+    <div class="status-container">
+        <span class="status-badge healthy">
+            <span class="status-dot"></span>
+            Application Running
+        </span>
+    </div>
+
+    <!-- Tech Stack -->
+    <section class="tech-stack">
+        <div class="tech-badge python">
+            <span class="tech-icon">🐍</span>
+            Python
+        </div>
+        <div class="tech-badge flask">
+            <span class="tech-icon">⚗️</span>
+            Flask
+        </div>
+        <div class="tech-badge docker">
+            <span class="tech-icon">🐳</span>
+            Docker
+        </div>
+        <div class="tech-badge github">
+            <span class="tech-icon">⚡</span>
+            GitHub Actions
+        </div>
+        <div class="tech-badge azure">
+            <span class="tech-icon">☁️</span>
+            Azure
+        </div>
+    </section>
+
+    <!-- API Endpoints -->
+    <section class="endpoints-section">
+        <h4>API Endpoints</h4>
+        <div class="endpoints-grid">
+            <a href="/health" class="endpoint-link">
+                <span class="method get">GET</span>
+                <span class="path">/health</span>
+            </a>
+            <a href="/api/info" class="endpoint-link">
+                <span class="method get">GET</span>
+                <span class="path">/api/info</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Built for DevOps Learning | Azure Student Free Tier</p>
+        <p class="copyright">© 2024 DevOps Demo Project</p>
+    </footer>
+</main>
+{% endblock %}
